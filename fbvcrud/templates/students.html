@@ -1,0 +1,25 @@
+{% extends "studentsapp/base.html" %}
+{% block title %}
+    <title>Home</title>
+    {% endblock %}
+<br><br>
+{% block content %}
+
+<div class="container">
+<h1 style="text-align:center;">Students Data</h1>
+
+    {% for st in student  %}
+<h3>
+    Student ID:-{{st.id}}<br>
+    Student Name:-{{st.student_name}}<br>
+    Student Address:-{{st.student_address}}<br>
+    Student Attendance:-{{st.student_attendance}}
+</h3>
+    <button type="button" class="btn btn-success"><a href="{% url 'updt' st.id %}">Update</a></button>
+<button type="button" class="btn btn-danger"><a href="{% url  'dlt' st.id %}">Delete</a></button>
+    <hr style="border-top: 1px dashed #8c8b8b;"><hr style="border-top: 1px dashed #8c8b8b;">
+        {% endfor %}
+
+    </div>
+
+{% endblock%}
